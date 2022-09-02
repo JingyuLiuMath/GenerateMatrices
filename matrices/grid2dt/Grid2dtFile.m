@@ -21,7 +21,7 @@ for it = 1:length(nvec)
     
     % Store x and b = Ax.
     m = size(A,1);
-    x = ones(m,1);
+    x = rand(m,1);
     b = A*x;
     fid_x = fopen("x_grid2dt_" + int2str(n) + ".txt", 'w');
     for t = 1:length(x)

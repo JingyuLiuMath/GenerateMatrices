@@ -1,4 +1,9 @@
-nvec = [16];
+%% test
+% nvec = [16];
+%% On the server
+run("/home/jyliu/GenerateMatrices/meshpart/meshpart_startup.m")
+nvec = [64,128,256,512,1024,2048,4096];
+%% Main
 for it = 1:length(nvec)
     n = nvec(it);
     A = Grid2d5Mat(n);

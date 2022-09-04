@@ -20,6 +20,7 @@ A = blockdiags ([-II aa -II],-1:1,n,n);
 % Disturbance
 N = n^3;
 tol = 1e-3;
+rng(1); % Random seed.
 dxyz = rand(N,3)*2*tol-tol;
 % dxyz = zeros(N,3); % No disturbance.
 
@@ -34,6 +35,7 @@ for i =1:length(row)
         xyz1 = [x1,y1,z1] + dxyz(rowi,:);
         xyz2 = [x2,y2,z2] + dxyz(coli,:);
         A(rowi,coli) = -dist1(xyz1,xyz2);
+        A(rowi,rowi) = A(rowi,rowi) + dist1(xyz1,xyz2) - 1;
     end
 end
 

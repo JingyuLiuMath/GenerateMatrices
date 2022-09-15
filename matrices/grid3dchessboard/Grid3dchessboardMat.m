@@ -23,6 +23,11 @@ N = n^3;
 A = sparse(N,N);
 B = 0.1 * speye(N);
 
+ivec = zeros(7*N,1);
+jvec = zeros(7*N,1);
+vvec = zeros(7*N,1);
+itt = 0;
+
 for it =1:length(row)
     rowi = row(it);
     coli = col(it);
@@ -40,10 +45,15 @@ for it =1:length(row)
             a2 = 0.1;
         end
         a = (a1 + a2)/2;
-        A(rowi,coli) = -a;
-        A(rowi,rowi) = A(rowi,rowi) + a;
+        itt = itt + 1;
+        ivec(itt) = rowi;
+        jvec(itt) = coli;
+        vvec(itt) = a;
     end
 end
+A = sparse(ivec(1:itt),jvec(1:itt),vvec(1:itt));
+dA = sparse(1:N,1:N,sum(A,2));
+A = A-dA;
 
 A = A + B;
 

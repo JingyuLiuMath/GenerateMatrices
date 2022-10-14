@@ -54,13 +54,12 @@ for it =1:length(row)
         itt = itt + 1;
         ivec(itt) = rowi;
         jvec(itt) = coli;
-        vvec(itt) = a;
+        vvec(itt) = -a;
     end
 end
-A = sparse(ivec(1:itt),jvec(1:itt),vvec(1:itt));
-dA = sparse(1:N,1:N,sum(A,2));
+A = sparse(ivec(1:itt), jvec(1:itt), vvec(1:itt));
+dA = sparse(1:N, 1:N, sum(A,2)); % dA is a negative diagonal matrix.
 A = A - dA;
-A = A * n^3;
 A = A + B;
 
 end

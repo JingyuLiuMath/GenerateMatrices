@@ -1,5 +1,6 @@
-%% test
-nvec = [16];
+%% On the server
+run("/home/jyliu/GenerateMatrices/meshpart/meshpart_startup.m")
+nvec = [128,256,512,1024,2048];
 
 %% Main
 for it = 1:length(nvec)

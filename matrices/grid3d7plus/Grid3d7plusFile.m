@@ -1,8 +1,6 @@
 %% test
-% nvec = [16];
-%% On the server
-run("/home/jyliu/GenerateMatrices/meshpart/meshpart_startup.m")
-nvec = [16,32,64,128,256];
+nvec = [16];
+
 %% Main
 for it = 1:length(nvec)
     n = nvec(it);
@@ -20,17 +18,17 @@ for it = 1:length(nvec)
     fclose(fid_mat);
     
     % Store x and b = Ax.
-    m = size(A,1);
-    x = rand(m,1);
-    b = A*x;
-    fid_x = fopen("x_grid3d7plus_" + int2str(n) + ".txt", 'w');
-    for t = 1:length(x)
-        fprintf(fid_x,'%3f \n',x(t));
-    end
-    fclose(fid_x);
-    fid_b = fopen("b_grid3d7plus_" + int2str(n) + ".txt", 'w');
-    for t = 1:length(b)
-        fprintf(fid_b,'%3f \n',b(t));
-    end
-    fclose(fid_b);
+%     m = size(A,1);
+%     x = rand(m,1);
+%     b = A*x;
+%     fid_x = fopen("x_grid3d7plus_" + int2str(n) + ".txt", 'w');
+%     for t = 1:length(x)
+%         fprintf(fid_x,'%3f \n',x(t));
+%     end
+%     fclose(fid_x);
+%     fid_b = fopen("b_grid3d7plus_" + int2str(n) + ".txt", 'w');
+%     for t = 1:length(b)
+%         fprintf(fid_b,'%3f \n',b(t));
+%     end
+%     fclose(fid_b);
 end
